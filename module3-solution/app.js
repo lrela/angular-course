@@ -16,7 +16,7 @@ function NarrowItDownController(MenuSearchService) {
 		MenuSearchService.buy(index);
 	}
 
-	buyCtrl.items = MenuSearchService.getToBuyItems();
+	buyCtrl.items = MenuSearchService.getMatchedMenuItems();
 	
 }
 

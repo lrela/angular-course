@@ -5,7 +5,7 @@ angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService);
 
-NarrowItDownController.$inject = ['MenuSearchService'];
+NarrowItDownController.$inject = ['MenuSearchService', '$http'];
 
 function NarrowItDownController(MenuSearchService) {
 	

@@ -59,10 +59,10 @@ function MenuSearchService($http, url) {
 			var items = response.data.menu_items;
 			var found = []
 
-			for(var i = 0; i < items.length; i++) {
+			for(var i = 0; i < items.length;) {
 				if(items[i].description.includes(searchTerm)) {
 					//console.log(items[i].name);
-					found.push(items[i]);
+					found.push(items[i++]);
 					//console.log(found.pop());
 
 				}

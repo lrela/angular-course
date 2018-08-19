@@ -19,9 +19,11 @@ function FoundItemsDirective() {
       onRemove: '&'
 	  */
     },
+	/*
     controller: NarrowItDownController,
     controllerAs: 'ctrl',
     bindToController: true
+	*/
   };
 
   return ddo;

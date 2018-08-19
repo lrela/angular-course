@@ -55,7 +55,6 @@ function MenuSearchService($http, url) {
 		return $http({
 			url: url
 		}).then(function (response) {
-			// process result and only keep items that match222
 
 			var items = response.data.menu_items;
 			var found = []

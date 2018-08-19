@@ -12,8 +12,8 @@ function FoundItemsDirective() {
   var ddo = {
     templateUrl: 'foundItems.html',
     scope: {
-      text: '<',
-      //myTitle: '@title',
+      items: '<',
+      myTitle: '@title',
       badRemove: '=',
       onRemove: '&'
     },
@@ -46,12 +46,12 @@ NarrowItDownController.$inject = ['$scope', 'MenuSearchService'];
 function NarrowItDownController($scope, MenuSearchService) {
 	// tänne promise MenuSearchServicelle
 	var ctrl = this;
-	ctrl.text = "";
+	ctrl.list = "";
 	
 	ctrl.getMatchedMenuItems = function getMatchedMenuItems() {
 		console.log("painettu")
-		MenuSearchService.getMatchedMenuItems(ctrl.text);
-		console.log('haettu ' + ctrl.text);
+		MenuSearchService.getMatchedMenuItems(ctrl.list);
+		console.log('haettu ' + ctrl.list);
 	}
 
 	//buyCtrl.items = MenuSearchService.getMatchedMenuItems('sauce');	

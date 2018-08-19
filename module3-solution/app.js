@@ -12,10 +12,10 @@ function FoundItemsDirective() {
   var ddo = {
     templateUrl: 'foundItems.html',
     scope: {
-      items: '<',
-      myTitle: '@title',
-      badRemove: '=',
-      onRemove: '&'
+      items: '&',
+//      myTitle: '@title',
+//      badRemove: '=',
+//      onRemove: '&'
     },
     controller: FoundItemsDirectiveController,
     controllerAs: 'list',

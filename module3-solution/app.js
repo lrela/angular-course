@@ -15,31 +15,18 @@ function FoundItemsDirective() {
 	restrict: 'E',
     scope: {
       items: '<',
-      remove: '&'
-	  
-	  /*
-      myTitle: '@title',
-      badRemove: '=',
-      onRemove: '&'
-	  */
-	  
+      remove: '&'	  
     },
-	/*
-    controller: NarrowItDownController,
-    controllerAs: 'ctrl',
-    bindToController: true
-	*/
-  };
+ };
 
   return ddo;
 }
 
 NarrowItDownController.$inject = ['$scope', 'MenuSearchService'];
 function NarrowItDownController($scope, MenuSearchService) {
-	// tänne promise MenuSearchServicelle
 	var ctrl = this;
 	ctrl.searchTerm = "";
-	ctrl.found = [];
+	ctrl.found = null;
 	
 	ctrl.getMatchedMenuItems = function () {
 		var promise = MenuSearchService.getMatchedMenuItems2(ctrl.searchTerm); 
@@ -71,10 +58,8 @@ function MenuSearchService($http, url) {
 
 			var len = items.length;
 			for(var i = 0; i < len; i++) {
-				if(items[i].description.indexOf(searchTerm) != -1) {
-					//console.log(items[i].description);
+				if(items[i].description.indexOf(searchTerm) != -1)
 					found.push(items[i]);
-				}
 			}
 	
 			console.log("found len: " + found.length);

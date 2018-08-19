@@ -7,44 +7,46 @@ angular.module('NarrowItDownApp', [])
 .constant('Url', "https://davids-restaurant.herokuapp.com/menu_items.json")
 .directive('foundItems', FoundItemsDirective);
 
+//.constant('Url', "http://localhost/module3-solution/menu.json")
+
 function FoundItemsDirective() {
   var ddo = {
     templateUrl: 'foundItems.html',
 	restrict: 'E',
     scope: {
       items: '<',
-	  /*
-      myTitle: '@title',
-      badRemove: '=',
-      onRemove: '&'
-	  */
+      remove: '&'	  
     },
-	/*
-    controller: NarrowItDownController,
-    controllerAs: 'ctrl',
-    bindToController: true
-	*/
-  };
+ };
 
   return ddo;
 }
 
 NarrowItDownController.$inject = ['$scope', 'MenuSearchService'];
 function NarrowItDownController($scope, MenuSearchService) {
-	// tänne promise MenuSearchServicelle
 	var ctrl = this;
 	ctrl.searchTerm = "";
-	ctrl.found = [];
+	ctrl.found = null;
 	
 	ctrl.getMatchedMenuItems = function () {
+		
+		if(ctrl.searchTerm.trim() == "") {
+			ctrl.found = [];
+			return;
+		}
+		
 		var promise = MenuSearchService.getMatchedMenuItems2(ctrl.searchTerm); 
 		
 		promise.then(function(result) {
 			ctrl.found = result;
-			console.log('items len ' + ctrl.found.length);
-		})
+		});
 		
-	}
+	};
+	
+	ctrl.remove = function(index) {
+		console.log("remove " + index);
+		ctrl.found.splice(index, 1);
+    };
 }
 
 MenuSearchService.$inject = ['$http', 'Url'];
@@ -59,13 +61,10 @@ function MenuSearchService($http, url) {
 			var items = response.data.menu_items;
 			var found = []
 
-			for(var i = 0; i < items.length;) {
-				if(items[i].description.includes(searchTerm)) {
-					//console.log(items[i].name);
-					found.push(items[i++]);
-					//console.log(found.pop());
-
-				}
+			var len = items.length;
+			for(var i = 0; i < len; i++) {
+				if(items[i].description.indexOf(searchTerm) != -1)
+					found.push(items[i]);
 			}
 	
 			console.log("found len: " + found.length);

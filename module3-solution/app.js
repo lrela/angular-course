@@ -6,17 +6,19 @@ angular.module('NarrowItDownApp', [])
 .service('MenuSearchService', MenuSearchService)
 .constant('Url', "https://davids-restaurant.herokuapp.com/menu_items.json");
 
-NarrowItDownController.$inject = ['MenuSearchService'];
-
-function NarrowItDownController(MenuSearchService) {
-	
+NarrowItDownController.$inject = ['$scope', 'MenuSearchService'];
+function NarrowItDownController($scope, MenuSearchService) {
 	// tänne promise MenuSearchServicelle
-	var buyCtrl = this;
-	buyCtrl.buy = function buy(index) {
-		MenuSearchService.buy(index);
+	var ctrl = this;
+	ctrl.text = "";
+	
+	ctrl.getMatchedMenuItems = function getMatchedMenuItems() {
+		console.log("painettu")
+		MenuSearchService.getMatchedMenuItems(ctrl.text);
+		console.log('haettu ' + ctrl.text);
 	}
 
-	buyCtrl.items = MenuSearchService.getMatchedMenuItems('sauce');	
+	//buyCtrl.items = MenuSearchService.getMatchedMenuItems('sauce');	
 }
 
 MenuSearchService.$inject = ['$http', 'Url'];

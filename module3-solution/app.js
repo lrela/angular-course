@@ -12,7 +12,7 @@ function FoundItemsDirective() {
     templateUrl: 'foundItems.html',
 	restrict: 'E',
     scope: {
-      items: '<'
+      items: '<',
 	  /*
       myTitle: '@title',
       badRemove: '=',

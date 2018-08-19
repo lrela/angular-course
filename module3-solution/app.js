@@ -18,7 +18,7 @@ function FoundItemsDirective() {
       onRemove: '&'
     },
     controller: FoundItemsDirectiveController,
-    controllerAs: 'ctrl',
+    controllerAs: 'list',
     bindToController: true
   };
 
@@ -28,17 +28,7 @@ function FoundItemsDirective() {
 
 function FoundItemsDirectiveController() {
   var list = this;
-
-  list.cookiesInList = function () {
-    for (var i = 0; i < list.items.length; i++) {
-      var name = list.items[i].name;
-      if (name.toLowerCase().indexOf("cookie") !== -1) {
-        return true;
-      }
-    }
-
-    return false;
-  };
+  return true;
 }
 
 

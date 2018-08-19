@@ -35,7 +35,7 @@ function FoundItemsDirectiveController() {
       if (name.toLowerCase().indexOf("cookie") !== -1) {
         return true;
       }
-    }FoundItemsDirective
+    }
 
     return false;
   };

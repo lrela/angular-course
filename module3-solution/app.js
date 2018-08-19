@@ -17,7 +17,7 @@ function FoundItemsDirective() {
       badRemove: '=',
       onRemove: '&'
     },
-    controller: ShoppingListDirectiveController,
+    controller: FoundItemsDirectiveController,
     controllerAs: 'list',
     bindToController: true
   };

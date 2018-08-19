@@ -30,7 +30,7 @@ function NarrowItDownController($scope, MenuSearchService) {
 	
 	ctrl.getMatchedMenuItems = function () {
 		
-		if(ctrl.searchTerm == "") {
+		if(ctrl.searchTerm.trim() == "") {
 			ctrl.found = [];
 			return;
 		}
@@ -39,13 +39,12 @@ function NarrowItDownController($scope, MenuSearchService) {
 		
 		promise.then(function(result) {
 			ctrl.found = result;
-			console.log('items len ' + ctrl.found.length);
 		});
 		
 	};
 	
 	ctrl.remove = function(index) {
-		console.log("remove" + index);
+		console.log("remove " + index);
 		ctrl.found.splice(index, 1);
     };
 }

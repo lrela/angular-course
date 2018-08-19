@@ -4,10 +4,10 @@
 angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
-.constant('Url', "http://localhost/module3-solution/menu.json")
+.constant('Url', "https://davids-restaurant.herokuapp.com/menu_items.json")
 .directive('foundItems', FoundItemsDirective);
 
-//https://davids-restaurant.herokuapp.com/menu_items.json
+//.constant('Url', "http://localhost/module3-solution/menu.json")
 
 function FoundItemsDirective() {
   var ddo = {

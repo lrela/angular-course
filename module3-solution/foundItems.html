@@ -2,7 +2,7 @@
 <p>
 <ul>
   <li ng-repeat="i in items">
-    <b>{{ i.name }}</b>, {{ i.description }}
+    <b>{{i.short_name}} {{ i.name }}</b>, {{ i.description }}
 	<button ng-click="remove({index: $index});">Don't want this one!</button>
   </li>
 

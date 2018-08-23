@@ -22,19 +22,9 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   .state('categories', {
     url: '/categories',
     templateUrl: 'src/categories.template.html',
-    controller: 'CategoriesController as catCtrl',
-    resolve: {
-		categories: ['MenuDataService', function ( MenuDataService) {
-			return MenuDataService.getAllCategories();
-		}]
-	}
-	})
+  })
 
-  .state('items', {
-    url: '/items',
-    templateUrl: 'src/items.template.html'
-    //controller: 'ItemsController as ctrl'
-  });
 }
-
+ 
+  
 })();

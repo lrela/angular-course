@@ -7,9 +7,13 @@ angular.module('MenuApp')
 RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RoutesConfig($stateProvider, $urlRouterProvider) {
 
+  // Redirect to home page if no other URL matches
   $urlRouterProvider.otherwise('/');
+
+  // *** Set up UI states ***
   $stateProvider
 
+  // Home page
   .state('home', {
     url: '/',
     templateUrl: 'src/home.template.html'
@@ -24,22 +28,9 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 				return MenuDataService.getAllCategories();
             }]
         }	
-  })
-
-  .state('items', {
-	url: '/items/{categoryName}',
-    templateUrl: 'src/main-items.template.html',
-    controller: 'ItemsController as itemCtrl',
-		resolve: {
-			items: [ 'MenuDataService','$stateParams', function ( MenuDataService, $stateParams) {
-				return MenuDataService.getItemsForCategory($stateParams.categoryName);
-            }]
-        }
-  })
+  });
   
-  ;
-  
-  console.log('RoutesConfig');
+  console.log('routes');
 }
 
 })();

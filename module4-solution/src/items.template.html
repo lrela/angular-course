@@ -1,7 +1,6 @@
-<h3>Title: {{ $ctrl.myTitle }}</h3>
 <ul>
-  <li ng-repeat="item in $ctrl.items">
-    {{ item.quantity }} of {{ item.name }}
-    <button ng-click="$ctrl.remove($index);">Remove Item</button>
-  </li>
+<li ng-repeat="item in $ctrl.items" >
+    <div><strong>{{ item.name }}</strong></div>
+    <div>Description: {{ item.description }}</div>
+</li>
 </ul>

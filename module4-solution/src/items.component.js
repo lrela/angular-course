@@ -1,13 +1,13 @@
-angular.module('MenuApp', [])
-//.controller('ShoppingListController', ShoppingListController)
-//.factory('ShoppingListFactory', ShoppingListFactory)
+(function () {
+'use strict';
+
+angular.module('MenuApp')
 .component('items', {
-  templateUrl: 'items.template.html',
-//  controller: ShoppingListComponentController,
+  templateUrl: 'src/items.template.html',
   bindings: {
-    items: '<',
-    myTitle: '@title',
-    onRemove: '&'
+    categories: '<',
+    myTitle: '@title'
   }
 });
 
+})();

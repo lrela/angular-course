@@ -28,13 +28,12 @@ function MenuDataService($http, BaseUrl) {
   // where, before the call to the server, your code should append whatever 
   // categoryShortName value was passed in as an argument into the getItemsForCategory 
   // method.
-  service.getItemsForCategory = function (categoryName) {
-	  console.log("getItemsForCategory="+categoryName);
+  service.getItemsForCategory = function (categoryShortName) {
     var response = $http({
       method: "GET",
       url: (BaseUrl + "/menu_items.json"),
       params: {
-        category: categoryName
+        category: categoryShortName
       }
     });
 	console.log("MenuDataService items");

@@ -29,7 +29,7 @@ function MenuDataService($http, BaseUrl) {
   // categoryShortName value was passed in as an argument into the getItemsForCategory 
   // method.
   service.getItemsForCategory = function (categoryName) {
-	  console.log("getItemsForCategory="+categoryName);
+	console.log("getItemsForCategory="+categoryName);
     var response = $http({
       method: "GET",
       url: (BaseUrl + "/menu_items.json"),

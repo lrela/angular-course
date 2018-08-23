@@ -8,6 +8,8 @@ CategoriesController.$inject = ['MenuDataService', 'categories'];
 function CategoriesController(MenuDataService, categories) {
     var ctrl = this;
     ctrl.categories = categories.data;
+	console.log('ctrl');
 }
 
 })();
+

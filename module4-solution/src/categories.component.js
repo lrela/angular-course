@@ -1,10 +1,12 @@
-angular.module('MenuApp', [])
-//.controller('ShoppingListController', ShoppingListController)
-//.factory('ShoppingListFactory', ShoppingListFactory)
+(function () {
+'use strict';
+
+angular.module('MenuApp')
 .component('categories', {
-  templateUrl: 'categories.template.html',
-//  controller: ShoppingListComponentController,
+  templateUrl: 'src/categories.template.html',
   bindings: {
-    items: '<'
+    categories: '<'
   }
 });
+
+})();

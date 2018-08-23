@@ -2,11 +2,11 @@
 
 angular.module('Data')
 .service('MenuDataService', MenuDataService)
-.constant('ApiBaseUrl', "https://davids-restaurant.herokuapp.com");
+.constant('BaseUrl', "https://davids-restaurant.herokuapp.com");
 
 
-MenuDataService.$inject = ['$http', 'ApiBaseUrl'];
-function MenuDataService($http, ApiBaseUrl) {
+MenuDataService.$inject = ['$http', 'BaseUrl'];
+function MenuDataService($http, BaseUrl) {
   var service = this;
 
   // getAllCategories - this method should return a promise which is a result of using 
@@ -15,9 +15,9 @@ function MenuDataService($http, ApiBaseUrl) {
   service.getAllCategories = function () {
     var response = $http({
       method: "GET",
-      url: (ApiBaseUrl + "/categories.json")
+      url: (BaseUrl + "/categories.json")
     });
-
+	console.log("MenuDataService categories");
     return response;
 	  
   };
@@ -31,12 +31,12 @@ function MenuDataService($http, ApiBaseUrl) {
   service.getItemsForCategory = function (categoryShortName) {
     var response = $http({
       method: "GET",
-      url: (ApiBaseUrl + "/menu_items.json"),
+      url: (BaseUrl + "/menu_items.json"),
       params: {
         category: categoryShortName
       }
     });
-
+	console.log("MenuDataService items");
     return response;
   };
 }

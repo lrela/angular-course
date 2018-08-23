@@ -1,6 +1,6 @@
 (function () {
 
-angular.module('MenuApp')
+angular.module('Data')
 .service('MenuDataService', MenuDataService)
 .constant('ApiBaseUrl', "https://davids-restaurant.herokuapp.com");
 
